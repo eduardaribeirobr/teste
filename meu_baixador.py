@@ -288,7 +288,7 @@ def executar_download(titulo_final):
         caminho_template = os.path.join(g_pasta_download, title_safe + '.%(ext)s')
 
         ydl_opts = {
-            'format': 'bestaudio',
+            'format': 'bestaudio/best',
             'outtmpl': caminho_template,
             'noplaylist': True,
             'progress_hooks': [download_hook],
