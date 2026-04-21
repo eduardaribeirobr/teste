@@ -11,7 +11,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM Verifica/instala dependências automaticamente
+REM Verifica/instala/atualiza yt-dlp automaticamente
 python -c "import yt_dlp" >nul 2>&1
 if errorlevel 1 (
     echo Instalando yt-dlp...
@@ -22,6 +22,8 @@ if errorlevel 1 (
         pause
         exit /b 1
     )
+) else (
+    python -m pip install -U yt-dlp --quiet
 )
 
 REM Inicia sem janela de console

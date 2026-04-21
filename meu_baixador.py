@@ -135,7 +135,12 @@ def executar_busca_automatica(url):
     ])
 
     try:
-        with yt_dlp.YoutubeDL({'noplaylist': True, 'quiet': True}) as ydl:
+        ydl_opts_busca = {
+            'noplaylist': True,
+            'quiet': True,
+            'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+        }
+        with yt_dlp.YoutubeDL(ydl_opts_busca) as ydl:
             info = ydl.extract_info(url, download=False)
 
         global g_info_dict
@@ -254,6 +259,7 @@ def executar_download(titulo_final):
                 'preferredquality': '192',
             }],
             'quiet': True,
+            'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
