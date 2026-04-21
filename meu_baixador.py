@@ -299,6 +299,7 @@ def executar_download(titulo_final):
             }],
             'quiet': True,
             'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
+            'concurrent_fragment_downloads': 4,
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
