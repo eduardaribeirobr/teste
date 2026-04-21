@@ -288,14 +288,14 @@ def executar_download(titulo_final):
         caminho_template = os.path.join(g_pasta_download, title_safe + '.%(ext)s')
 
         ydl_opts = {
-            'format': 'bestaudio/best',
+            'format': 'bestaudio',
             'outtmpl': caminho_template,
             'noplaylist': True,
             'progress_hooks': [download_hook],
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
                 'preferredcodec': 'mp3',
-                'preferredquality': '192',
+                'preferredquality': '0',  # VBR melhor qualidade (~220-260kbps)
             }],
             'quiet': True,
             'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
