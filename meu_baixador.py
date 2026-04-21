@@ -297,6 +297,9 @@ def executar_download(titulo_final):
                 'preferredcodec': 'mp3',
                 'preferredquality': '0',  # VBR melhor qualidade (~220-260kbps)
             }],
+            'postprocessor_args': {
+                'ffmpegextractaudio': ['-compression_level', '9'],
+            },
             'quiet': True,
             'extractor_args': {'youtube': {'player_client': ['android', 'web']}},
             'concurrent_fragment_downloads': 4,
